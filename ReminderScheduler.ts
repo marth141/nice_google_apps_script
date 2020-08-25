@@ -4,9 +4,9 @@ class ReminderScheduler {
   last_sent: any;
   send_reminder: boolean;
 
-  constructor(reminder_for: string, last_sent: any) {
+  constructor(who: string, last_sent: any) {
     this.now = new Date();
-    this.reminder_for = reminder_for;
+    this.reminder_for = who;
     this.last_sent = last_sent;
     this.send_reminder = (function (last_sent: any) {
       switch (last_sent) {
