@@ -3,7 +3,7 @@ function clear_last_sent() {
 }
 
 function send_reminders() {
-  new Employees().list.forEach((employee) => {
+  new Employees().list.forEach((employee: Employee) => {
     switch (
       check_needs_reminder(employee.name, employee.last_sent).send_reminder
     ) {
