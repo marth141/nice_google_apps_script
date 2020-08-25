@@ -8,7 +8,7 @@ class Controller {
       "spreadsheet_url"
     );
     this.reminder_list = new ReminderList();
-    this.configuration = new Controller().spreadsheet.getSheetByName(
+    this.configuration = this.spreadsheet.getSheetByName(
       "Configuration"
     );
   }
