@@ -3,9 +3,7 @@ class Employees {
 
   constructor() {
     this.list = (function () {
-      const employee_table = new Controller().reminder_list
-        .getRange("A2:C")
-        .getValues();
+      const employee_table = new Controller().reminder_list.records;
       let to_return = [];
       let i = 0;
       while (i < employee_table.length) {
