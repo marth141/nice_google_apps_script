@@ -37,5 +37,5 @@ function send_reminders() {
 }
 
 function check_needs_reminder(who: string, last_sent: any) {
-  return new ReminderScheduler(who, last_sent);
+  return new ReminderSchedulerMessage(who, last_sent);
 }
