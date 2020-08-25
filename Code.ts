@@ -16,12 +16,12 @@ function send_reminders() {
           configuration.body
         );
         MailApp.sendEmail(email.to, email.replyTo, email.subject, email.body);
-        new Controller().reminder_list.update(employee);
+        new Controller().reminder_list.update_last_sent(employee);
         break;
       default:
         switch (employee.last_sent) {
           case "":
-            new Controller().reminder_list.update(employee);
+            new Controller().reminder_list.update_last_sent(employee);
             break;
           default:
             new Controller().spreadsheet.toast(
