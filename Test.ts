@@ -9,11 +9,11 @@ function test() {
     const two_days_ago = new Date(today.setDate(today.getDate() - 3));
     return two_days_ago;
   })();
-  const test_schedule_1 = new ReminderSchedulerMessage(
+  const test_schedule_1 = new ReminderScheduler(
     "employee@company.com",
     test_last_sent_two_days_ago
   );
-  const test_schedule_2 = new ReminderSchedulerMessage(
+  const test_schedule_2 = new ReminderScheduler(
     "employee@company.com",
     test_last_sent_three_days_ago
   );
