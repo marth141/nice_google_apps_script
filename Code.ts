@@ -5,7 +5,7 @@ function clear_last_sent() {
 function send_reminders() {
   new Employees().list.forEach((employee: Employee) => {
     switch (
-      check_needs_reminder(employee.name, employee.last_sent).send_reminder
+      new ReminderScheduler(employee.name, employee.last_sent).send_reminder
     ) {
       case true:
         const configuration = new Configuration();
@@ -30,8 +30,4 @@ function send_reminders() {
         }
     }
   });
-}
-
-function check_needs_reminder(who: string, last_sent: any) {
-  return new ReminderSchedulerMessage(who, last_sent);
 }
