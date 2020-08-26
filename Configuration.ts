@@ -1,11 +1,15 @@
 class Configuration {
+  sheet: GoogleAppsScript.Spreadsheet.Sheet;
   reply_to: string;
   subject: string;
   body: string;
 
   constructor() {
-    this.reply_to = new Controller().configuration.getRange(1, 2).getValue();
-    this.subject = new Controller().configuration.getRange(2, 2).getValue();
-    this.body = new Controller().configuration.getRange(3, 2).getValue();
+    this.sheet = SpreadsheetApp.openByUrl("spreadsheet_url").getSheetByName(
+      "Configuration"
+    );
+    this.reply_to = this.sheet.getRange(1, 2).getValue();
+    this.subject = this.sheet.getRange(2, 2).getValue();
+    this.body = this.sheet.getRange(3, 2).getValue();
   }
 }
