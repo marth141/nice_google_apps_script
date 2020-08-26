@@ -5,9 +5,9 @@ class ReminderList {
   last_sent_column: GoogleAppsScript.Spreadsheet.Range;
 
   constructor() {
-    this.sheet = SpreadsheetApp.openByUrl("spreadsheet_url").getSheetByName(
-      "Sheet1"
-    );
+    this.sheet = SpreadsheetApp.openByUrl(
+      "spreadsheet_url"
+    ).getSheetByName("Sheet1");
     this.update_last_sent = function (employee: Employee) {
       new ReminderList().sheet
         .getRange(employee.row_index, 3)
