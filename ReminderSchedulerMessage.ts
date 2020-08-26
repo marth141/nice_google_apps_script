@@ -1,4 +1,4 @@
-class ReminderSchedulerMessage {
+class ReminderScheduler {
   reminder_for: string;
   now: Date;
   last_sent: any;
