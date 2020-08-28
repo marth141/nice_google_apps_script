@@ -15,11 +15,11 @@ So I'm proud of how it turned out and hope that it helps someone else with think
 
 With a reminder list like...
 
-| Employee (A:A) | Employee Email (B:B) | Last Sent (C:C) |
-|----------------|----------------------|-----------------|
-| John Doe       | john.doe@company.com |                 |
-| Jane Doe       | jane.doe@company.com |                 |
-| ...            | ...                  | ...             |
+| Employee (A:A) | Employee Email (B:B)  | Last Sent (C:C) |
+|----------------|-----------------------|-----------------|
+| John Deer      | john.deer@company.com |                 |
+| Jane Doe       | jane.doe@company.com  |                 |
+| ...            | ...                   | ...             |
 
 Someone would be able to send some emails and set a trigger to have emails send automatically 2, 3, or 14 days after the initial Last Sent date.
 
