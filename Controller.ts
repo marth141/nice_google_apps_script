@@ -1,7 +1,6 @@
 class Controller {
   spreadsheet: GoogleAppsScript.Spreadsheet.Spreadsheet;
   reminder_list: ReminderList;
-  configuration: GoogleAppsScript.Spreadsheet.Sheet;
 
   constructor() {
     this.spreadsheet = SpreadsheetApp.openByUrl(
