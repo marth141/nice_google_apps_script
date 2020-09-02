@@ -39,6 +39,7 @@ function send_reminders() {
                 );
             }
         }
+        break;
       default:
         new Controller().spreadsheet.toast("Not activated, see configuration.");
     }
