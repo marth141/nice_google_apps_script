@@ -4,6 +4,7 @@ class ConfigurationSheet {
   public subject: string;
   public link: string;
   public body: string;
+  public activated: boolean;
 
   constructor(spreadsheet: GoogleAppsScript.Spreadsheet.Spreadsheet) {
     this.sheet = spreadsheet.getSheetByName("Configuration");
@@ -16,5 +17,6 @@ class ConfigurationSheet {
       let body: string = sheet.getRange(2, 4).getValue();
       return body.replace("LINK_PLACEHOLDER", link).replace(/\n/g, "<br/>");
     })(this.sheet, this.link);
+    this.activated = this.sheet.getRange(2, 5).getValue();
   }
 }
