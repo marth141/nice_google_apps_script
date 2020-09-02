@@ -1,7 +1,7 @@
 class Employee {
   public email: string;
   public position: string;
-  public form_sent: Date | boolean;
+  public form_sent: Date;
   public send_reminder: boolean;
   public last_sent: any;
   public row_index: number;

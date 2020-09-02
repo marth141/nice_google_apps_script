@@ -1,5 +1,5 @@
 function clear_last_sent() {
-  new Controller().reminder_list.last_sent_column.clear();
+  new Controller().reminder_sheet.last_sent_column.clear();
 }
 
 function send_reminders() {
@@ -19,12 +19,19 @@ function send_reminders() {
               replyTo: email.replyTo,
               htmlBody: email.body,
             });
-            new Controller().reminder_list.update_last_sent(employee);
+            new Controller().reminder_sheet.update_last_sent(
+              employee,
+              new Date()
+            );
             break;
           default:
             switch (employee.last_sent) {
               case "":
-                new Controller().reminder_list.update_last_sent(employee);
+                new Controller().reminder_sheet.update_last_sent(
+                  employee,
+                  employee.form_sent
+                );
+                send_reminders();
                 break;
               default:
                 new Controller().spreadsheet.toast(

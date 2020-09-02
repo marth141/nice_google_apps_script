@@ -14,7 +14,7 @@ class ReminderScheduler {
             default:
               switch (typeof employee.form_sent) {
                 case typeof Date:
-                  switch (date_diff(employee.last_sent)) {
+                  switch (date_diff(employee.form_sent)) {
                     case 2:
                       return true;
                     case 5:

@@ -3,7 +3,7 @@ class Employees {
 
   constructor() {
     this.list = (function () {
-      return new Controller().reminder_list.records
+      return new Controller().reminder_sheet.records
         .map((record, index) => {
           switch (record[0]) {
             case "":
@@ -22,7 +22,7 @@ class Employees {
                 send_reminder: function (input: boolean) {
                   return input;
                 },
-                last_sent: function (input: Date) {
+                last_sent: function (input: any) {
                   return input;
                 },
                 row_index: function (input: number) {
