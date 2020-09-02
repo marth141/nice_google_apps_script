@@ -13,19 +13,18 @@ So I'm proud of how it turned out and hope that it helps someone else with think
 
 # Setup
 
-With a reminder list like...
+Run `npm install` to get Google Types for coding.
 
-| Employee (A:A) | Employee Email (B:B)  | Last Sent (C:C) |
-|----------------|-----------------------|-----------------|
-| John Deer      | john.deer@company.com |                 |
-| Jane Doe       | jane.doe@company.com  |                 |
-| ...            | ...                   | ...             |
+Reminder Sheet would look like...
 
-Someone would be able to send some emails and set a trigger to have emails send automatically 2, 3, or 14 days after the initial Last Sent date.
+| Employee Email | Position | Form Sent | Send Reminder | Last Sent |
+|----------------|----------|-----------|---------------|-----------|
+| test0@test.com | Manager  | 9/2/2020  | FALSE         | 9/2/2020  |
+| test1@test.com | Employee | 9/2/2020  | TRUE          | 9/4/2020  |
+| ...            | ...      | ...       | ...           | ...       |
 
-Configuration table would look like...
-| Config (A:A) | Config (B:B)         |
-|--------------|----------------------|
-| reply to     | john.doe@company.com |
-| subject      | Example Subject      |
-| body         | Example Body         |
+Configuration sheet would look like...
+
+| Reply To       | Subject      | Link             | Body                          | Activated |
+|----------------|--------------|------------------|-------------------------------|-----------|
+| test2@test.com | Test Subject | https://test.com | Hello, visit LINK_PLACEHOLDER | TRUE      |
