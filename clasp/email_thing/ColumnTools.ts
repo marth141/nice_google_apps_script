@@ -31,7 +31,3 @@ class ColumnTools {
     };
   }
 }
-
-function myFunction() {
-  Logger.log(new ColumnTools().column_to_letter(1));
-}

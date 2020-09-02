@@ -6,6 +6,9 @@ function test() {
     position: function (input: string) {
       return input;
     },
+    form_sent: function (input: Date) {
+      return input;
+    },
     send_reminder: function (input: boolean) {
       return input;
     },
@@ -20,6 +23,7 @@ function test() {
     new Employee(
       employee_input.email("test@test.com"),
       employee_input.position("Test Position"),
+      employee_input.form_sent(new Date()),
       employee_input.send_reminder(true),
       employee_input.last_sent(new Date()),
       employee_input.row_index(0)
@@ -29,6 +33,7 @@ function test() {
     new Employee(
       employee_input.email("test@test.com"),
       employee_input.position("Test Position"),
+      employee_input.form_sent(new Date()),
       employee_input.send_reminder(true),
       employee_input.last_sent(
         new Date(new Date().setDate(new Date().getDate() - 2))
@@ -40,6 +45,7 @@ function test() {
     new Employee(
       employee_input.email("test@test.com"),
       employee_input.position("Test Position"),
+      employee_input.form_sent(new Date()),
       employee_input.send_reminder(true),
       employee_input.last_sent(
         new Date(new Date().setDate(new Date().getDate() - 5))

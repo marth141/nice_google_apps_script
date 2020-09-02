@@ -15,11 +15,9 @@ class ReminderScheduler {
               switch (date_diff(employee.last_sent)) {
                 case 2:
                   return true;
-                case 3:
-                  return true;
                 case 5:
                   return true;
-                case 13:
+                case 8:
                   return true;
                 default:
                   return false;

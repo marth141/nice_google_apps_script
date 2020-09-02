@@ -13,7 +13,10 @@ function send_reminders() {
           configuration.subject,
           configuration.body
         );
-        MailApp.sendEmail(email.to, email.replyTo, email.subject, email.body);
+        MailApp.sendEmail(email.to, email.subject, email.body, {
+          replyTo: email.replyTo,
+          htmlBody: email.body,
+        });
         new Controller().reminder_list.update_last_sent(employee);
         break;
       default:
