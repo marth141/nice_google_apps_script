@@ -3,22 +3,30 @@ class ReminderScheduler {
 
   constructor(employee: Employee) {
     this.result = (function (employee: Employee) {
-      switch (employee.last_sent) {
-        case "":
-          return true;
-        default:
-          switch (new Date().getDate() - employee.last_sent.getDate()) {
-            case 2:
-              return true;
-            case 3:
-              return true;
-            case 5:
-              return true;
-            case 13:
+      const date_diff = function (last_sent: Date) {
+        return new Date().getDate() - last_sent.getDate();
+      };
+      switch (employee.send_reminder) {
+        case true:
+          switch (employee.last_sent) {
+            case "":
               return true;
             default:
-              return false;
+              switch (date_diff(employee.last_sent)) {
+                case 2:
+                  return true;
+                case 3:
+                  return true;
+                case 5:
+                  return true;
+                case 13:
+                  return true;
+                default:
+                  return false;
+              }
           }
+        default:
+          return false;
       }
     })(employee);
   }
