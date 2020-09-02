@@ -1,8 +1,8 @@
 class ReminderEmail {
-  to: string;
-  replyTo: string;
-  subject: string;
-  body: string;
+  public to: string;
+  public replyTo: string;
+  public subject: string;
+  public body: string;
 
   constructor(to: string, reply_to: string, subject: string, body: string) {
     this.to = to;

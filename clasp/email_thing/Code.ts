@@ -4,11 +4,9 @@ function clear_last_sent() {
 
 function send_reminders() {
   new Employees().list.forEach((employee: Employee) => {
-    switch (
-      new ReminderScheduler(employee.name, employee.last_sent).send_reminder
-    ) {
+    switch (new ReminderScheduler(employee).result) {
       case true:
-        const configuration = new Configuration();
+        const configuration = new Controller().configuration;
         const email = new ReminderEmail(
           employee.email,
           configuration.reply_to,
@@ -25,7 +23,7 @@ function send_reminders() {
             break;
           default:
             new Controller().spreadsheet.toast(
-              "No reminder needed for " + employee.name
+              "No reminder needed for " + employee.email
             );
         }
     }

@@ -1,0 +1,10 @@
+{
+  "name": "nice-google-apps-script",
+  "version": "1.0.0",
+  "description": "Just some apps script I like.",
+  "author": "Nathan Casados",
+  "license": "ISC",
+  "dependencies": {
+    "@types/google-apps-script": "^1.0.15"
+  }
+}
