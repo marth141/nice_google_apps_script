@@ -10,15 +10,20 @@ class ReminderScheduler {
         case true:
           switch (employee.last_sent) {
             case "":
-              return true;
+              return false;
             default:
-              switch (date_diff(employee.last_sent)) {
-                case 2:
-                  return true;
-                case 5:
-                  return true;
-                case 8:
-                  return true;
+              switch (typeof employee.form_sent) {
+                case typeof Date:
+                  switch (date_diff(employee.last_sent)) {
+                    case 2:
+                      return true;
+                    case 5:
+                      return true;
+                    case 8:
+                      return true;
+                    default:
+                      return false;
+                  }
                 default:
                   return false;
               }
