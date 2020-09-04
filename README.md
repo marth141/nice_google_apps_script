@@ -40,7 +40,7 @@ A Sheet called, "Configuration" would look like...
 
 - Controller.ts
   - Gives us easy access to the Spreadsheet (`"spreadsheet_url"`).
-  - Uses the Spreadsheet to also get the Sheets (`Reminder List`, `"Configuration"`).
+  - Uses the Spreadsheet to also get the Sheets (`"Reminder List"`, `"Configuration"`).
 - ConfigurationSheet.ts
   - Receives `spreadsheet` from `new Controller()` to get the `new ConfigurationSheet()`.
   - Gets other properties from the Configuration Sheet with `getRange().getValue()`.
