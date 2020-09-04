@@ -20,7 +20,7 @@ So I'm proud of how it turned out and hope that it helps someone else with think
 
 # Setup Google Sheet
 
-Reminder Sheet would look like...
+A Sheet called, "Reminder List" would look like...
 
 | Employee Email | Position | Form Sent | Send Reminder | Last Sent |
 | -------------- | -------- | --------- | ------------- | --------- |
@@ -28,7 +28,7 @@ Reminder Sheet would look like...
 | test1@test.com | Employee | 9/2/2020  | TRUE          | 9/4/2020  |
 | ...            | ...      | ...       | ...           | ...       |
 
-Configuration sheet would look like...
+A Sheet called, "Configuration" would look like...
 
 | Reply To       | Subject      | Link             | Body                          | Activated |
 | -------------- | ------------ | ---------------- | ----------------------------- | --------- |
@@ -40,22 +40,22 @@ Configuration sheet would look like...
 
 - Controller.ts
   - Gives us easy access to the Spreadsheet (`"spreadsheet_url"`).
-  - Uses the Spreadsheet to also get the Sheets (`getSheets()[0]`, `"Configuration"`).
+  - Uses the Spreadsheet to also get the Sheets (`Reminder List`, `"Configuration"`).
 - ConfigurationSheet.ts
-  - Receives `spreadsheet` from `Controller` to get the `ConfigurationSheet`.
+  - Receives `spreadsheet` from `new Controller()` to get the `new ConfigurationSheet()`.
   - Gets other properties from the Configuration Sheet with `getRange().getValue()`.
 - ReminderSheet.ts
-  - Receives `spreadsheet` from `Controller` to get the `ReminderSheet`.
+  - Receives `spreadsheet` from `new Controller()` to get the `new ReminderSheet()`.
   - Gets other properties from the first Sheet in the Spreadsheet with `getRange().getValues()`.
-  - Gets the `records` which will become `Employee` structs.
+  - Gets the `records` which will become `new Employee()` structs.
 - Employee.ts
-  - Defines a struct for an `Employee` using a `class`.
+  - Defines a struct for an `new Employee()` using a `class`.
 - Employees.ts
-  - Uses the records received from `ReminderSheet` to build a list of `Employee` structs.
+  - Uses the records received from `new ReminderSheet()` to build a list of `new Employee()` structs.
 - ReminderScheduler.ts
-  - Receives an `Employee` struct and determines if a reminder needs to be sent.
+  - Receives a `new Employee()` struct and determines if a reminder needs to be sent.
 - ReminderEmail.ts
-  - Defines a struct for a `ReminderEmail` using a `class`.
+  - Defines a struct for a `new ReminderEmail()` using a `class`.
 - Code.ts
   - Defines the functions that we want our Google Apps Script to run e.g. `send_reminders()`.
 
