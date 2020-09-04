@@ -12,9 +12,11 @@ So I'm proud of how it turned out and hope that it helps someone else with think
 
 # Setup Commands
 
-1. run `npm install -g @google/clasp` to install clasp.
-2. run `clasp login` to login to your Google.
+1. Run `npm install -g @google/clasp` to install clasp.
+2. Run `clasp login` to login to your Google.
 3. Run `npm install` to get `@types/google-apps-script` for coding.
+4. Make `nice_google_apps_script/clasp/email_thing/.clasp.json` with `{ "scriptId": PASTE_SCRIPT_ID_HERE }`
+5. With a shell in `nice_google_apps_script/clasp/email_thing` run `clasp push` to push code to your Google Sheet's Google App Script.
 
 # Setup Google Sheet
 
