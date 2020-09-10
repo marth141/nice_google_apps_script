@@ -5,7 +5,7 @@ class RecordsAssessor {
       records
         .map((record: FinanceRecord) => {
           switch (record.to_keep) {
-            case true:
+            case false:
               return record;
             default:
               break;
