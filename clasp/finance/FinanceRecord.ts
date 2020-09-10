@@ -32,11 +32,11 @@ class FinanceRecord {
     this.to_keep = ((to_keep: any) => {
       switch (to_keep) {
         case "":
-          return cost;
+          return to_keep;
         default:
-          switch (typeof cost) {
-            case "number":
-              return cost;
+          switch (typeof to_keep) {
+            case "boolean":
+              return to_keep;
             default:
               return "";
           }
