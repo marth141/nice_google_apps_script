@@ -6,8 +6,8 @@ class FinanceSheet {
   public update_total_to_remove: (value) => void;
   constructor(spreadsheet: GoogleAppsScript.Spreadsheet.Spreadsheet) {
     this.sheet = spreadsheet.getSheets()[0];
-    this.records = (() =>
-      this.sheet
+    this.records = ((sheet: GoogleAppsScript.Spreadsheet.Sheet) =>
+      sheet
         .getRange("A2:C")
         .getValues()
         .map(
@@ -23,7 +23,7 @@ class FinanceSheet {
             record.name !== undefined &&
             record.cost !== undefined &&
             record.to_keep !== undefined
-        ))();
+        ))(this.sheet);
     this.total_bill = ((value: any) => {
       switch (typeof value) {
         case "number":
@@ -34,7 +34,6 @@ class FinanceSheet {
     })(this.sheet.getRange("D2").getValue());
     this.update_percent = (value: number) =>
       this.sheet.getRange("E2").setValue(value);
-
     this.update_total_to_remove = (value: number) =>
       this.sheet.getRange("F2").setValue(value);
   }
