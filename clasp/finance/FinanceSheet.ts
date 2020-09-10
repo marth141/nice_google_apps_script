@@ -19,10 +19,10 @@ class FinanceSheet {
             )
         )
         .filter(
-          (element: FinanceRecord) =>
-            element.name !== undefined &&
-            element.cost !== undefined &&
-            element.to_keep !== undefined
+          (record: FinanceRecord) =>
+            record.name !== undefined &&
+            record.cost !== undefined &&
+            record.to_keep !== undefined
         ))();
     this.total_bill = ((value: any) => {
       switch (typeof value) {
