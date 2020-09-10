@@ -9,7 +9,7 @@ function myFunction() {
       controller.finance_sheet.total_bill
     );
     controller.finance_sheet.update_percent(
-      calculator.percent_of_removed_to_bill
+      calculator.percent_of_removed_to_total
     );
     controller.finance_sheet.update_total_to_remove(
       calculator.total_cost_of_records_to_remove
