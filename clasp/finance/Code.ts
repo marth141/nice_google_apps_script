@@ -4,11 +4,14 @@ function myFunction() {
     const record_assessor = new RecordsAssessor(
       controller.finance_sheet.records
     );
-    const update_value = new Calculator(
+    const calculator = new Calculator(
       record_assessor.records_to_keep,
       controller.finance_sheet.total_bill
-    ).percent_of_keep_to_bill;
-    controller.finance_sheet.update_percent(update_value);
+    );
+    controller.finance_sheet.update_percent(calculator.percent_of_keep_to_bill);
+    controller.finance_sheet.update_total_to_remove(
+      calculator.total_cost_of_records_to_keep
+    );
     return "OK";
   } catch (error) {
     throw error;
