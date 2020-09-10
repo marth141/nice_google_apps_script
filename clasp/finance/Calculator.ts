@@ -6,9 +6,7 @@ class Calculator {
       records_to_keep: Array<FinanceRecord>
     ) =>
       records_to_keep
-        .map((record: FinanceRecord) => {
-          return record.cost;
-        })
+        .map((record: FinanceRecord) => record.cost)
         .reduce((x, y) => x + y, 0))(records_to_keep);
     this.percent_of_keep_to_bill = ((
       total_cost_of_records_to_keep: number,

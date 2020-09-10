@@ -18,14 +18,18 @@ class FinanceSheet {
               ((to_keep) => to_keep)(record_row[2])
             )
         )
-        .filter((element: FinanceRecord) => element.name !== ""))();
-    this.total_bill = ((value: number) => {
-      switch (typeof value === typeof 0) {
-        case false:
-          throw "D2 is not a number.";
-
-        default:
+        .filter(
+          (element: FinanceRecord) =>
+            element.name !== undefined &&
+            element.cost !== undefined &&
+            element.to_keep !== undefined
+        ))();
+    this.total_bill = ((value: any) => {
+      switch (typeof value) {
+        case "number":
           return value;
+        default:
+          throw "D2 is not a number.";
       }
     })(this.sheet.getRange("D2").getValue());
     this.update_percent = (value: number) =>

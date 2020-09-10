@@ -6,39 +6,39 @@ class FinanceRecord {
     this.name = ((name: any) => {
       switch (name) {
         case "":
-          return name;
+          return undefined;
         default:
           switch (typeof name) {
             case "string":
               return name;
             default:
-              return "";
+              return undefined;
           }
       }
     })(name);
     this.cost = ((cost: any) => {
       switch (cost) {
         case "":
-          return cost;
+          return undefined;
         default:
           switch (typeof cost) {
             case "number":
               return cost;
             default:
-              return "";
+              return undefined;
           }
       }
     })(cost);
     this.to_keep = ((to_keep: any) => {
       switch (to_keep) {
         case "":
-          return to_keep;
+          return undefined;
         default:
           switch (typeof to_keep) {
             case "boolean":
               return to_keep;
             default:
-              return "";
+              return undefined;
           }
       }
     })(to_keep);
