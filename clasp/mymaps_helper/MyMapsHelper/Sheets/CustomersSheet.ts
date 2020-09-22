@@ -29,17 +29,16 @@ class CustomersSheet {
           case 1:
             break;
           default:
-            const to_array = [
-              [
-                customer.name,
-                customer.address,
-                customer.latitude,
-                customer.longitude,
-              ],
-            ];
             customers_sheet
               .getRange(`A${index_offset}:D${index_offset}`)
-              .setValues(to_array);
+              .setValues([
+                [
+                  customer.name,
+                  customer.address,
+                  customer.latitude,
+                  customer.longitude,
+                ],
+              ]);
             return;
         }
       });
