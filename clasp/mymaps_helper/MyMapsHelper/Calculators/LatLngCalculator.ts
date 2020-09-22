@@ -1,5 +1,5 @@
 class LatLngCalculator {
-  lat_lng_result: (customers: Array<Customer>) => Array<Customer>;
+  public lat_lng_result: (customers: Array<Customer>) => Array<Customer>;
 
   constructor() {
     this.lat_lng_result = (customers: Array<Customer>) => {
@@ -18,11 +18,11 @@ class LatLngCalculator {
               (function latitude(address: string) {
                 return Maps.newGeocoder().geocode(address).results[0].geometry
                   .location.lat;
-              })(customer.address),
+              })(customer.address()),
               (function longitude(address: string) {
                 return Maps.newGeocoder().geocode(address).results[0].geometry
                   .location.lng;
-              })(customer.address),
+              })(customer.address()),
             ]);
         }
       });

@@ -1,20 +1,23 @@
 class InputSheet {
-  sheet: GoogleAppsScript.Spreadsheet.Sheet;
-  fetch_customers: () => Array<Customer>;
-  update_customers: (customers: Array<Customer>) => void;
+  public sheet: () => GoogleAppsScript.Spreadsheet.Sheet;
+  public fetch_customers: () => Array<Customer>;
+  public update_customers: (customers: Array<Customer>) => void;
 
   constructor(spreadsheet: GoogleAppsScript.Spreadsheet.Spreadsheet) {
-    this.sheet = spreadsheet.getSheets()[0];
+    this.sheet = () => {
+      return spreadsheet.getSheets()[0];
+    };
 
     this.fetch_customers = () => {
-      return this.sheet
+      return this.sheet()
         .getRange("A:B")
         .getValues()
         .map((row_entry: Array<any>) => {
           return new Customer(row_entry);
         })
         .filter(
-          (customer: Customer) => customer.name != "" || customer.address != ""
+          (customer: Customer) =>
+            customer.name() != "" || customer.address() != ""
         );
     };
 
@@ -28,14 +31,14 @@ class InputSheet {
           case 1:
             break;
           default:
-            this.sheet
+            this.sheet()
               .getRange(`A${index_offset}:D${index_offset}`)
               .setValues([
                 [
-                  customer.name,
-                  customer.address,
-                  customer.latitude,
-                  customer.longitude,
+                  customer.name(),
+                  customer.address(),
+                  customer.latitude(),
+                  customer.longitude(),
                 ],
               ]);
             return;
