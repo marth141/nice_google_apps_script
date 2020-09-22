@@ -6,7 +6,7 @@ class MyMapsHelper {
   constructor() {
     this.spreadsheet = () => {
       return SpreadsheetApp.openByUrl(
-        "https://docs.google.com/spreadsheets/d/1FjZtIptz2KUvw2REo7TNfruJHUbrXapOUD3fBc9zSIs/edit"
+        "spreadsheet_url"
       );
     };
     this.input_sheet = () => {
