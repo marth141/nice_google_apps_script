@@ -1,17 +1,17 @@
 class MyMapsHelper {
-  public spreadsheet: () => GoogleAppsScript.Spreadsheet.Spreadsheet;
+  public spreadsheet: GoogleAppsScript.Spreadsheet.Spreadsheet;
   public input_sheet: () => InputSheet;
   public output_sheet: () => OutputSheet;
 
   constructor() {
-    this.spreadsheet = () => {
-      return SpreadsheetApp.openByUrl("spreadsheet_url");
-    };
+    this.spreadsheet = SpreadsheetApp.openByUrl(
+      "https://docs.google.com/spreadsheets/d/1FjZtIptz2KUvw2REo7TNfruJHUbrXapOUD3fBc9zSIs/edit"
+    );
     this.input_sheet = () => {
-      return new InputSheet(this.spreadsheet());
+      return new InputSheet(this.spreadsheet);
     };
     this.output_sheet = () => {
-      return new OutputSheet(this.spreadsheet());
+      return new OutputSheet(this.spreadsheet);
     };
   }
 }
