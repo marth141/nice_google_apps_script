@@ -23,11 +23,10 @@ class InputSheet {
 
     this.update_customers = (customers: Array<Customer>) => {
       customers.map((customer: Customer, index: number) => {
-        const index_offset = ((index: number) => {
-          const offset = 1;
-          return index + offset;
-        })(index);
-        switch (index_offset) {
+        const index_offset = (index: number) => {
+          return index + 1;
+        };
+        switch (index_offset(index)) {
           case 1:
             break;
           default:
