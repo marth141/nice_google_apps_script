@@ -4,21 +4,21 @@ class LatLngCalculator {
   constructor() {
     this.lat_lng_result = (customers: Array<Customer>) => {
       return customers.map((customer: Customer, index: number) => {
-        const index_offset = (index: number) => {
+        const index_offset = (function get_offset(index: number) {
           return index + 1;
-        };
-        switch (index_offset(index)) {
+        })(index);
+        switch (index_offset) {
           case 1:
             break;
           default:
             return new Customer([
               customer.name(),
               customer.address(),
-              (function get_latitude(address: string): number {
+              (function latitude(address: string): number {
                 return Maps.newGeocoder().geocode(address).results[0].geometry
                   .location.lat;
               })(customer.address()),
-              (function get_longitude(address: string): number {
+              (function longitude(address: string): number {
                 return Maps.newGeocoder().geocode(address).results[0].geometry
                   .location.lng;
               })(customer.address()),

@@ -23,15 +23,15 @@ class InputSheet {
 
     this.update_customers = (customers: Array<Customer>) => {
       customers.map((customer: Customer, index: number) => {
-        const index_offset = (index: number) => {
+        const index_offset = (function get_offset(index: number) {
           return index + 1;
-        };
-        switch (index_offset(index)) {
+        })(index);
+        switch (index_offset) {
           case 1:
             break;
           default:
             this.sheet()
-              .getRange(`A${index_offset(index)}:D${index_offset(index)}`)
+              .getRange(`A${index_offset}:D${index_offset}`)
               .setValues([
                 [
                   customer.name(),
