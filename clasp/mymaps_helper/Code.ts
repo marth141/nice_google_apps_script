@@ -1,6 +1,6 @@
 function myFunction() {
   const helper: MyMapsHelper = new MyMapsHelper();
-  const results: Array<Customer> = new LatLonCalculator().lat_lon_result(
+  const results: Array<Customer> = new LatLngCalculator().lat_lng_result(
     helper.customers_sheet.fetch_customers()
   );
 

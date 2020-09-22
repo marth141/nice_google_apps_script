@@ -1,8 +1,8 @@
-class LatLonCalculator {
-  lat_lon_result: (customers: Array<Customer>) => Array<Customer>;
+class LatLngCalculator {
+  lat_lng_result: (customers: Array<Customer>) => Array<Customer>;
 
   constructor() {
-    this.lat_lon_result = (customers: Array<Customer>) => {
+    this.lat_lng_result = (customers: Array<Customer>) => {
       return customers.map((customer: Customer, index: number) => {
         const index_offset = ((index: number) => {
           const offset = 1;
