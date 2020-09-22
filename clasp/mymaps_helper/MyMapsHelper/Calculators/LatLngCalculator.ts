@@ -11,18 +11,18 @@ class LatLngCalculator {
           case 1:
             break;
           default:
-            return new Customer([
-              customer.name(),
-              customer.address(),
-              (function get_latitude(address: string): number {
+            return new Customer({
+              name: customer.name(),
+              address: customer.address(),
+              latitude: (function get_latitude(address: string): number {
                 return Maps.newGeocoder().geocode(address).results[0].geometry
                   .location.lat;
               })(customer.address()),
-              (function get_longitude(address: string): number {
+              longitude: (function get_longitude(address: string): number {
                 return Maps.newGeocoder().geocode(address).results[0].geometry
                   .location.lng;
               })(customer.address()),
-            ]);
+            });
         }
       });
     };

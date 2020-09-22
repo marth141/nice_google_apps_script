@@ -4,7 +4,13 @@ class Customer {
   public latitude: () => number;
   public longitude: () => number;
 
-  constructor([name, address, latitude, longitude]: Array<any>) {
+  constructor(inputs: {
+    name: any;
+    address: any;
+    latitude: any;
+    longitude: any;
+  }) {
+    const { name, address, latitude, longitude } = inputs;
     this.name = () => {
       return name == undefined ? "" : name;
     };

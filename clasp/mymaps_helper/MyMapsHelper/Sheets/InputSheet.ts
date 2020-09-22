@@ -12,7 +12,12 @@ class InputSheet {
         .getRange("A:B")
         .getValues()
         .map(([name, address]: Array<any>) => {
-          return new Customer([name, address, undefined, undefined]);
+          return new Customer({
+            name: name,
+            address: address,
+            latitude: undefined,
+            longitude: undefined,
+          });
         })
         .filter(
           (customer: Customer) =>
