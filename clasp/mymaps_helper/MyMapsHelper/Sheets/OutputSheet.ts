@@ -6,7 +6,6 @@ class OutputSheet {
     this.sheet = spreadsheet.getSheets()[1];
 
     this.update_output = (customers: Array<Customer>) => {
-      const output_sheet = this.sheet;
       customers.map((customer: Customer, index: number) => {
         const index_offset = ((index: number) => {
           const offset = 1;
@@ -16,7 +15,7 @@ class OutputSheet {
           case 1:
             break;
           default:
-            output_sheet
+            this.sheet
               .getRange(`A${index_offset}:D${index_offset}`)
               .setValues([
                 [

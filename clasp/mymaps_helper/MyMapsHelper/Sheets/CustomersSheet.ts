@@ -1,4 +1,4 @@
-class CustomersSheet {
+class InputSheet {
   sheet: GoogleAppsScript.Spreadsheet.Sheet;
   fetch_customers: () => Array<Customer>;
   update_customers: (customers: Array<Customer>) => void;
@@ -19,7 +19,6 @@ class CustomersSheet {
     };
 
     this.update_customers = (customers: Array<Customer>) => {
-      const customers_sheet = this.sheet;
       customers.map((customer: Customer, index: number) => {
         const index_offset = ((index: number) => {
           const offset = 1;
@@ -29,7 +28,7 @@ class CustomersSheet {
           case 1:
             break;
           default:
-            customers_sheet
+            this.sheet
               .getRange(`A${index_offset}:D${index_offset}`)
               .setValues([
                 [
