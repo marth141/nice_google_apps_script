@@ -1,13 +1,15 @@
 class InputSheet {
-  public sheet: GoogleAppsScript.Spreadsheet.Sheet;
+  public sheet: () => GoogleAppsScript.Spreadsheet.Sheet;
   public fetch_customers: () => Array<Customer>;
   public update_customers: (customers: Array<Customer>) => void;
 
   constructor(spreadsheet: GoogleAppsScript.Spreadsheet.Spreadsheet) {
-    this.sheet = spreadsheet.getSheets()[0];
+    this.sheet = () => {
+      return spreadsheet.getSheets()[0];
+    };
 
     this.fetch_customers = () => {
-      return this.sheet
+      return this.sheet()
         .getRange("A:B")
         .getValues()
         .map((row_entry: Array<any>) => {
@@ -28,7 +30,7 @@ class InputSheet {
           case 1:
             break;
           default:
-            this.sheet
+            this.sheet()
               .getRange(`A${index_offset(index)}:D${index_offset(index)}`)
               .setValues([
                 [

@@ -5,7 +5,7 @@ function myFunction() {
   );
 
   output_sheet().update_output(results);
-  spreadsheet.toast(
+  spreadsheet().toast(
     "Check Output Sheet and Save/Export Output Sheet as .csv",
     "Completed",
     180
