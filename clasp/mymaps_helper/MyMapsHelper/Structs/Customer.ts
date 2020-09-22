@@ -4,18 +4,18 @@ class Customer {
   public latitude: () => number;
   public longitude: () => number;
 
-  constructor(row_entry: Array<any>) {
+  constructor([name, address, latitude, longitude]: Array<any>) {
     this.name = () => {
-      return row_entry[0] == undefined ? "" : row_entry[0];
+      return name == undefined ? "" : name;
     };
     this.address = () => {
-      return row_entry[1] == undefined ? "" : row_entry[1];
+      return address == undefined ? "" : address;
     };
     this.latitude = () => {
-      return row_entry[2] == undefined ? "" : row_entry[2];
+      return latitude == undefined ? "" : latitude;
     };
     this.longitude = () => {
-      return row_entry[3] == undefined ? "" : row_entry[3];
+      return longitude == undefined ? "" : longitude;
     };
   }
 }
