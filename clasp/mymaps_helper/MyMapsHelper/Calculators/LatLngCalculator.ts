@@ -14,11 +14,11 @@ class LatLngCalculator {
             return new Customer([
               customer.name(),
               customer.address(),
-              (function latitude(address: string): number {
+              (function get_latitude(address: string): number {
                 return Maps.newGeocoder().geocode(address).results[0].geometry
                   .location.lat;
               })(customer.address()),
-              (function longitude(address: string): number {
+              (function get_longitude(address: string): number {
                 return Maps.newGeocoder().geocode(address).results[0].geometry
                   .location.lng;
               })(customer.address()),
