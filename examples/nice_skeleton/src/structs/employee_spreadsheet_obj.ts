@@ -21,7 +21,7 @@ class EmployeeSpreadsheetObj {
       if (employee == "") {
         return { error: "No Employee", link };
       } else if (link == "") {
-        return { error: "No Link", employee: employee };
+        return { error: "No Link", employee };
       }
       return { error: "Not Authorized", link };
     }
