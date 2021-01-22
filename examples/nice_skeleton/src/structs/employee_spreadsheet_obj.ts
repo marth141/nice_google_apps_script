@@ -18,15 +18,14 @@ class EmployeeSpreadsheetObj {
     const { employee } = this_class;
 
     try {
+      if (employee == "") {
+        throw new Error("No Employee");
+      } else if (link == "") {
+        throw new Error("No Link");
+      }
       return SpreadsheetApp.openByUrl(link);
     } catch (error) {
-      console.error(error);
-      if (employee == "") {
-        return { error: "No Employee", link };
-      } else if (link == "") {
-        return { error: "No Link", employee };
-      }
-      return { error: "Not Authorized", link };
+      return { error, link };
     }
   }
 }
