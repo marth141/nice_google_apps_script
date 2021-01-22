@@ -19,10 +19,13 @@ class EmployeeSpreadsheetObj {
       return SpreadsheetApp.openByUrl(link);
     } catch (error) {
       if (employee == "") {
+        console.error(error);
         return { error: "No Employee", link };
       } else if (link == "") {
+        console.error(error);
         return { error: "No Link", employee };
       }
+      console.error(error);
       return { error: "Not Authorized", link };
     }
   }
