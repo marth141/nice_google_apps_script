@@ -13,7 +13,7 @@ class NiceSkeletonSpreadsheet {
     return SpreadsheetApp.openById(spreadsheet_id);
   }
 
-  get_employee_links_sheet(spreadsheet = this.spreadsheet) {
+  get_example_sheet(spreadsheet = this.spreadsheet) {
     return new ExampleEmployeeLinksSheet(spreadsheet);
   }
 }
