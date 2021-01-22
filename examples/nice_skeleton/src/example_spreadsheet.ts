@@ -3,7 +3,8 @@ class NiceSkeletonSpreadsheet {
   spreadsheet: GoogleAppsScript.Spreadsheet.Spreadsheet;
 
   constructor(spreadsheet_id = "spreadsheet_id") {
-    const { get_spreadsheet } = this;
+    const this_class = this;
+    const { get_spreadsheet } = this_class;
 
     this.spreadsheet_id = spreadsheet_id;
     this.spreadsheet = get_spreadsheet(spreadsheet_id);

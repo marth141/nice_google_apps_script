@@ -3,14 +3,17 @@ class ExampleEmployeeLinksSheet {
   spreadsheet: GoogleAppsScript.Spreadsheet.Spreadsheet;
 
   constructor(spreadsheet: GoogleAppsScript.Spreadsheet.Spreadsheet) {
-    const employee_links_sheet = this;
-    this.sheet = employee_links_sheet.get_sheet(spreadsheet);
+    const this_class = this;
+    const { get_sheet } = this_class;
+
+    this.sheet = get_sheet(spreadsheet);
     this.spreadsheet = spreadsheet;
   }
 
   get_employee_spreadsheets() {
-    const employee_links_sheet = this;
-    const { sheet } = employee_links_sheet;
+    const this_class = this;
+    const { sheet } = this_class;
+
     return sheet
       .getRange(`A1:B${sheet.getLastRow()}`)
       .getValues()

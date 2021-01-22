@@ -4,17 +4,19 @@ class EmployeeSpreadsheetObj {
     | GoogleAppsScript.Spreadsheet.Spreadsheet
     | { error: string; link?: string; employee?: string };
 
-  constructor(input: { name: any; link: any }) {
-    const employee_spreadsheet_obj = this;
-    const { try_open_spreadsheet } = employee_spreadsheet_obj;
-    const { name, link } = input;
+  constructor(args: { name: any; link: any }) {
+    const this_class = this;
+    const { try_open_spreadsheet } = this_class;
+    const { name, link } = args;
+
     this.employee = name;
     this.spreadsheet = try_open_spreadsheet(link);
   }
 
   try_open_spreadsheet(link) {
-    const employee_spreadsheet_obj = this;
-    const { employee } = employee_spreadsheet_obj;
+    const this_class = this;
+    const { employee } = this_class;
+
     try {
       return SpreadsheetApp.openByUrl(link);
     } catch (error) {
