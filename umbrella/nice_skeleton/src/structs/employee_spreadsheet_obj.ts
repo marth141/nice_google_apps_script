@@ -2,7 +2,7 @@ class EmployeeSpreadsheetObj {
   employee: string;
   spreadsheet:
     | GoogleAppsScript.Spreadsheet.Spreadsheet
-    | { error: string; link?: string; employee?: string };
+    | { error: Error; link?: string; employee?: string; stack?: string };
 
   constructor(args: { name: any; link: any }) {
     const this_class = this;
@@ -25,7 +25,7 @@ class EmployeeSpreadsheetObj {
       }
       return SpreadsheetApp.openByUrl(link);
     } catch (error) {
-      return { error, link };
+      return { error, link, employee, stack: error.stack };
     }
   }
 }
