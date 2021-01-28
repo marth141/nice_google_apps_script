@@ -1,21 +1,26 @@
 # nice_google_apps_script
 
-Just some Google Apps Script I'm happy with.
+So sharing this pattern for working with Spreadsheet Google Apps Script.
 
-A lot of it was written after coming off a while of writing Elixir.
+Basically you'd want to abstract the top level "Spreadsheet" stuff into a class like in example_spreadsheet.ts.
 
-I wanted to try a lot more functional approaching and writing in much more Elixirish way with Google Apps Script.
+Then you'd want to abstract your sheets into classes like in example_spreadsheet/example_sheet.ts.
 
-The project ended up using `class` like `defmodule`.
+You'd want to abstract your table data like in struct/employee_spreadsheet_obj.ts.
 
-So I'm proud of how it turned out and hope that it helps someone else with thinking about how to write Google Apps Script.
+With these foundations, you can execute myFunction() in Code.ts.
+
+The end result of this is that it'll show a "how to read spreadsheet data & how to update spreadsheet data" method with a solid umbrella application foundation.
+
+I filled in comments across all the mentioned files to explain more in depth what is happening.
 
 # Setup Commands
 
 1. Run `npm install -g @google/clasp` to install clasp.
 2. Run `npm install` to get `@types/google-apps-script` for coding.
 3. Run `clasp login` to login to your Google.
-4. Update the `.clasp.json` with your script id.
-5. Use `clasp create` create your apps script project.
+4. Use `clasp create` create your apps script project.
+5. Update the `.clasp.json` with the new script's id.
+6. Use `clasp push` in the `src/` directory. e.g. `~/code/nice_google_apps_script/umbrella/nice_skeleton/src$ clasp push`
 
 Any critique is welcome!
