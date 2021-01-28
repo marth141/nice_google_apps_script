@@ -10,7 +10,7 @@ You'd want to abstract your table data like in `struct/employee_spreadsheet_obj.
 
 With these foundations, you can execute `myFunction()` in `Code.ts`.
 
-The end result of this is that it'll show a "how to read spreadsheet data & how to update spreadsheet data" method with a solid umbrella application foundation.
+The end result of this is that it'll show a "how to read spreadsheet data & how to update spreadsheet data" method with a solid umbrella application foundation; with pretty full IDE support if you're using Visual Studio Code, clasp, and @types/google-apps-script.
 
 I filled in comments across all the mentioned files to explain more in depth what is happening.
 
