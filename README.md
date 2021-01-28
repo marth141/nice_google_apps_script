@@ -1,6 +1,6 @@
 # nice_google_apps_script
 
-So sharing this pattern for working with Spreadsheet Google Apps Script.
+So sharing this recipe for working with Spreadsheet Google Apps Script.
 
 Basically you'd want to abstract the top level "Spreadsheet" stuff into a class like in `example_spreadsheet.ts`.
 
