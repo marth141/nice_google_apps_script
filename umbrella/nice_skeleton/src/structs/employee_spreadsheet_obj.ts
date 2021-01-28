@@ -4,6 +4,8 @@ class EmployeeSpreadsheetObj {
     | GoogleAppsScript.Spreadsheet.Spreadsheet
     | { error: Error; link?: string; employee?: string; stack?: string };
 
+  // I like using this syntax for getting and setting the values for
+  // a class that is being used like a struct.
   constructor(args: { name: any; link: any }) {
     const this_class = this;
     const { try_open_spreadsheet } = this_class;
@@ -13,10 +15,14 @@ class EmployeeSpreadsheetObj {
     this.spreadsheet = try_open_spreadsheet(link);
   }
 
+  // Just going to try opening the spreadsheet.
   try_open_spreadsheet(link) {
     const this_class = this;
     const { employee } = this_class;
 
+    // if it doesn't open, lets throw some errors,
+    // catch the errors to keep the program from breaking,
+    // and return an error object that we can if away with instanceof.
     try {
       if (employee == "") {
         throw new Error("No Employee");
