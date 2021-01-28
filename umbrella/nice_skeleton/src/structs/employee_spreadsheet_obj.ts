@@ -14,6 +14,8 @@ class EmployeeSpreadsheetObj {
 
     // Adding the index which would be used
     // for putting the record back in updates.
+    // Which also means this should almost always be defined
+    // during the map that gathers values.
     this.index = index;
     this.name = name;
     this.spreadsheet = try_open_spreadsheet(link);
