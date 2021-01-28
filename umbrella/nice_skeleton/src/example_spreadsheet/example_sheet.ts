@@ -11,10 +11,14 @@ class ExampleEmployeeLinksSheet {
     this.spreadsheet = spreadsheet;
   }
 
-  update_employee_spreadsheet(employee: EmployeeSpreadsheetObj) {
+  // With this function we can update an employee in our spreadsheet
+  // using the employee object we set up earlier.
+  // Functions before this function should
+  // transform the EmployeeSpreadsheetObj to be what we want to update last.
+  update_employee_spreadsheet(updated_employee: EmployeeSpreadsheetObj) {
     const this_class = this;
     const { sheet } = this_class;
-    const { index, name, spreadsheet } = employee;
+    const { index, name, spreadsheet } = updated_employee;
 
     try {
       // Using instanceof and our custom error, your IDE can keep using

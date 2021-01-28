@@ -20,6 +20,9 @@ class EmployeeSpreadsheetObj {
   }
 
   // Just going to try opening the spreadsheet.
+  // This technically applies a transformation
+  // to our EmployeeSpreadsheetObj.
+  // This is useful later in the update function.
   try_open_spreadsheet(link) {
     const this_class = this;
     const { name: employee } = this_class;
