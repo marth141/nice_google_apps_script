@@ -12,6 +12,9 @@ function myFunction() {
     // (e.g. '(value) => {return value}') to execute
     // across all the values of the map.
     .map((value: EmployeeSpreadsheetObj) => {
-      new NiceSkeletonSpreadsheet().get_example_sheet().update_employee(value);
+      const updated_employee = value;
+      new NiceSkeletonSpreadsheet()
+        .get_example_sheet()
+        .update_employee_spreadsheet(updated_employee);
     });
 }

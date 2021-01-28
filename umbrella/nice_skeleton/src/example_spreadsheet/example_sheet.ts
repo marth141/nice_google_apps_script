@@ -11,7 +11,7 @@ class ExampleEmployeeLinksSheet {
     this.spreadsheet = spreadsheet;
   }
 
-  update_employee(employee: EmployeeSpreadsheetObj) {
+  update_employee_spreadsheet(employee: EmployeeSpreadsheetObj) {
     const this_class = this;
     const { sheet } = this_class;
     const { index, name, spreadsheet } = employee;
