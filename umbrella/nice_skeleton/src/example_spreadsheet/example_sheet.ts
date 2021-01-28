@@ -11,8 +11,37 @@ class ExampleEmployeeLinksSheet {
     this.spreadsheet = spreadsheet;
   }
 
-  // Here we can get our [name, link] pairs from
-  // an A:B range in a spreadsheet.
+  update_employee(employee: EmployeeSpreadsheetObj) {
+    const this_class = this;
+    const { sheet } = this_class;
+    const { index, name, spreadsheet } = employee;
+
+    try {
+      // Using instanceof and our custom error, your IDE can keep using
+      // strict typing. Bit of extra code though.
+      if (spreadsheet instanceof EmployeeSpreadsheetObjError) {
+        sheet.getRange(`A${index + 1}:B${index + 1}`).setValues([
+          [
+            name, // a
+            spreadsheet.link, // b
+          ],
+        ]);
+        throw new Error("Could not access spreadsheet");
+      } else {
+        sheet.getRange(`A${index + 1}:B${index + 1}`).setValues([
+          [
+            name, // a
+            spreadsheet.getUrl(), // b
+          ],
+        ]);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  // Here we can get our [[name, link]] pairs from
+  // an A:B range in a spreadsheet and make them an object.
   get_employee_spreadsheets() {
     const this_class = this;
     const { sheet } = this_class;
@@ -30,13 +59,16 @@ class ExampleEmployeeLinksSheet {
           switch (index) {
             // Skipping the first values because they're probably headers.
             case 0:
-              return [a, b];
+              return;
 
             // Creating a formal object that has full '.' access in an IDE.
             // Happy programming!
             default:
-              return new EmployeeSpreadsheetObj({ name: a, link: b });
+              return new EmployeeSpreadsheetObj({ name: a, link: b, index });
           }
+        })
+        .filter((value: EmployeeSpreadsheetObj) => {
+          value != undefined;
         })
     );
   }
