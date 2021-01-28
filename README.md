@@ -2,13 +2,13 @@
 
 So sharing this pattern for working with Spreadsheet Google Apps Script.
 
-Basically you'd want to abstract the top level "Spreadsheet" stuff into a class like in example_spreadsheet.ts.
+Basically you'd want to abstract the top level "Spreadsheet" stuff into a class like in `example_spreadsheet.ts`.
 
-Then you'd want to abstract your sheets into classes like in example_spreadsheet/example_sheet.ts.
+Then you'd want to abstract your sheets into classes like in `example_spreadsheet/example_sheet.ts`.
 
-You'd want to abstract your table data like in struct/employee_spreadsheet_obj.ts.
+You'd want to abstract your table data like in `struct/employee_spreadsheet_obj.ts`.
 
-With these foundations, you can execute myFunction() in Code.ts.
+With these foundations, you can execute `myFunction()` in `Code.ts`.
 
 The end result of this is that it'll show a "how to read spreadsheet data & how to update spreadsheet data" method with a solid umbrella application foundation.
 
