@@ -65,7 +65,7 @@ class ExampleEmployeeLinksSheet {
           switch (index) {
             // Skipping the first values because they're probably headers.
             case 0:
-              return;
+              break;
 
             // Creating a formal object that has full '.' access in an IDE.
             // Happy programming!
