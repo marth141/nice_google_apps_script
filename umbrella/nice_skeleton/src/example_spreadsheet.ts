@@ -6,6 +6,7 @@ class NiceSkeletonSpreadsheet {
 
   // Written like this we can either give a spreadsheet_id to
   // the constructor or we can define the default.
+  // Optional spreadsheet! Modular!
   constructor(spreadsheet_id = "spreadsheet_id") {
     // This little pattern is so as to not lose track of which 'this'.
     const this_class = this;
