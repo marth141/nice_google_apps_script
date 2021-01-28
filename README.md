@@ -17,7 +17,7 @@ I filled in comments across all the mentioned files to explain more in depth wha
 # Setup Commands
 
 1. Run `npm install -g @google/clasp` to install clasp.
-2. Run `npm install` to get `@types/google-apps-script` for coding.
+2. Run `npm install --save @types/google-apps-script` to get `@types/google-apps-script` for coding.
 3. Run `clasp login` to login to your Google.
 4. Use `clasp create` create your apps script project.
 5. Update the `.clasp.json` with the new script's id.
