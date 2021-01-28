@@ -10,7 +10,7 @@ function myFunction() {
     // JavaScript/TypeScript maps are amazing.
     // We define a 'predicate' which is a function
     // (e.g. '(value) => {return value}') to execute
-    // across all the values of the map.
+    // across all the values of the array.
     .map((value: EmployeeSpreadsheetObj) => {
       const updated_employee = value;
       new NiceSkeletonSpreadsheet()
