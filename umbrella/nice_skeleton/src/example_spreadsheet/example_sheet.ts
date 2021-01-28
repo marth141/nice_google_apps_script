@@ -14,7 +14,7 @@ class ExampleEmployeeLinksSheet {
   // With this function we can update an employee in our spreadsheet
   // using the employee object we set up earlier.
   // Functions before this function should
-  // transform the EmployeeSpreadsheetObj to be what we want to update last.
+  // transform the EmployeeSpreadsheetObj to be what we want before updating.
   update_employee_spreadsheet(updated_employee: EmployeeSpreadsheetObj) {
     const this_class = this;
     const { sheet } = this_class;
