@@ -20,6 +20,8 @@ class ExampleEmployeeLinksSheet {
       // Using instanceof and our custom error, your IDE can keep using
       // strict typing. Bit of extra code though.
       if (spreadsheet instanceof EmployeeSpreadsheetObjError) {
+        // Here we can just transform our object back into a [[]] by
+        // simply building the [[obj.property, obj.property]] like so.
         sheet.getRange(`A${index + 1}:B${index + 1}`).setValues([
           [
             name, // a
