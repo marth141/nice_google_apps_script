@@ -12,6 +12,6 @@ function myFunction() {
     // (e.g. '(value) => {return value}') to execute
     // across all the values of the map.
     .map((value: EmployeeSpreadsheetObj) => {
-      Logger.log(value);
+      new NiceSkeletonSpreadsheet().get_example_sheet().update_employee(value);
     });
 }
