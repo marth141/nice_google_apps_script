@@ -12,6 +12,7 @@ function myFunction() {
     // (e.g. '(value) => {return value}') to execute
     // across all the values of the array.
     .map((value: EmployeeSpreadsheetObj) => {
+      // Like this would apply some other transformation.
       const updated_employee = value;
       new NiceSkeletonSpreadsheet()
         .get_example_sheet()
