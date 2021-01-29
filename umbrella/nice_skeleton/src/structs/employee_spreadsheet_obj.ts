@@ -14,7 +14,7 @@ class EmployeeSpreadsheetObj {
 
     // Adding the index which would be used
     // for putting the record back in updates.
-    // Which also means this should almost always be defined
+    // Which also means this should almost always be assigned
     // during the map that gathers values.
     this.index = index;
     this.name = name;

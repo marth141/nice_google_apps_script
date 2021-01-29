@@ -13,7 +13,7 @@ class NiceSkeletonSpreadsheet {
     // This is some object destructuring.
     const { get_spreadsheet } = this_class;
 
-    // Here we define the properties of our class.
+    // Here we assign the properties of our class.
     this.spreadsheet_id = spreadsheet_id;
     this.spreadsheet = get_spreadsheet(spreadsheet_id);
   }

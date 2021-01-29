@@ -67,6 +67,7 @@ class ExampleEmployeeLinksSheet {
             case 0:
               break;
 
+            // Now we've transformed the [[a,b]].
             // Creating a formal object that has full '.' access in an IDE.
             // Happy programming!
             default:
