@@ -13,7 +13,9 @@ function myFunction() {
     // across all the values of the array.
     .map((value: EmployeeSpreadsheetObj) => {
       // Like this would apply some other transformation.
-      const updated_employee = value;
+      // Do something to the value before returning it, nah mean?
+      const updated_employee = ((value) => {return value})(value);
+      // Then send that updated puppy to their house.
       new NiceSkeletonSpreadsheet()
         .get_example_sheet()
         .update_employee_spreadsheet(updated_employee);
