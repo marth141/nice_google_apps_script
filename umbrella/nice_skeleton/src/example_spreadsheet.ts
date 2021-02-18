@@ -25,7 +25,7 @@ class NiceSkeletonSpreadsheet {
     return SpreadsheetApp.openById(spreadsheet_id);
   }
 
-  // The spreadsheet should also just provide the sheets really.
+  // The spreadsheet should also just provide the sheets.
   get_example_sheet(spreadsheet = this.spreadsheet) {
     return new ExampleEmployeeLinksSheet(spreadsheet);
   }
