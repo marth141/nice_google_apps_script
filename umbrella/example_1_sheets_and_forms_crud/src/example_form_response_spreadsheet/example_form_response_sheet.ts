@@ -53,15 +53,16 @@ class ExampleFormResponseSheet extends ExampleFormResponseSpreadsheet {
     return sheet
       .getRange(`A1:E${sheet.getLastRow()}`)
       .getValues()
-      .map(([a, b, c, d, e], index) => {
+      .map(([a, b, c, d, e, f], index) => {
         if (a instanceof Date) {
           return new FormResponseObj({
             index,
             timestamp: a,
             email: b,
-            favorite_day: c,
-            given_number: d,
-            favorite_food: e,
+            name: c,
+            favorite_day: d,
+            given_number: e,
+            favorite_food: f,
           });
         }
       })

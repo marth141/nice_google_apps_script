@@ -2,6 +2,7 @@ class FormResponseObj {
   index: number;
   timestamp: Date;
   email: string;
+  name: string;
   favorite_day: Date;
   given_number: number;
   favorite_food: string;
@@ -10,6 +11,7 @@ class FormResponseObj {
     index;
     timestamp;
     email;
+    name;
     favorite_day;
     given_number;
     favorite_food;
@@ -18,6 +20,7 @@ class FormResponseObj {
       index,
       timestamp,
       email,
+      name,
       favorite_day,
       given_number,
       favorite_food,
@@ -26,6 +29,7 @@ class FormResponseObj {
     this.index = index;
     this.timestamp = timestamp;
     this.email = email;
+    this.name = name;
     this.favorite_day = favorite_day;
     this.given_number = given_number;
     this.favorite_food = favorite_food;

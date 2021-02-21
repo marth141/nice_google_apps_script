@@ -12,6 +12,9 @@ function test() {
               email: `Script${new ExampleFormResponseSpreadsheet()
                 .get_reponse_sheet()
                 .sheet.getLastRow()}@Test.com`,
+              name: `Script${new ExampleFormResponseSpreadsheet()
+                .get_reponse_sheet()
+                .sheet.getLastRow()} Test`,
               favorite_day: new Date("2/20/2021 13:49:15"),
               given_number: 888,
               favorite_food: "Chicken",
