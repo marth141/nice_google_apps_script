@@ -1,6 +1,5 @@
 class ExampleFormResponseSheet extends ExampleFormResponseSpreadsheet {
   sheet: GoogleAppsScript.Spreadsheet.Sheet;
-  spreadsheet: GoogleAppsScript.Spreadsheet.Spreadsheet;
   start_column: string;
   end_column: string;
 
