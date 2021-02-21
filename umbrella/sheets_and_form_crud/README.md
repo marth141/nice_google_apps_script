@@ -1,6 +1,6 @@
 # CRUD with Google Sheets
 
-Hello! This folder contains an example, based off the nice skeleton, of CRUD.
+Hello! This folder contains an example—based off the nice skeleton—of CRUD.
 
 CRUD is Create, Read, Update, and Delete.
 
