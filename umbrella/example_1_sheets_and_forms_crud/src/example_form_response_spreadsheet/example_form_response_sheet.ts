@@ -37,7 +37,7 @@ class ExampleFormResponseSheet extends ExampleFormResponseSpreadsheet {
         return existing_response;
       } else {
         sheet
-          .getRange(`A${sheet.getLastRow() + 1}:E${sheet.getLastRow() + 1}`)
+          .getRange(`A${sheet.getLastRow() + 1}:F${sheet.getLastRow() + 1}`)
           .setValues([
             [timestamp, email, favorite_day, given_number, favorite_food],
           ]);
@@ -51,7 +51,7 @@ class ExampleFormResponseSheet extends ExampleFormResponseSpreadsheet {
     const { sheet } = this_class;
 
     return sheet
-      .getRange(`A1:E${sheet.getLastRow()}`)
+      .getRange(`A1:F${sheet.getLastRow()}`)
       .getValues()
       .map(([a, b, c, d, e, f], index) => {
         if (a instanceof Date) {
@@ -123,7 +123,7 @@ class ExampleFormResponseSheet extends ExampleFormResponseSpreadsheet {
     } = to_update;
 
     sheet
-      .getRange(`A${index + 1}:E${index + 1}`)
+      .getRange(`A${index + 1}:F${index + 1}`)
       .setValues([
         [timestamp, email, favorite_day, given_number, favorite_food],
       ]);
