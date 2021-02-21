@@ -63,7 +63,7 @@ function test() {
     label: "Test update record",
     result: (() => {
       try {
-        const existing_response = new ExampleFormResponseSpreadsheet()
+        let existing_response = new ExampleFormResponseSpreadsheet()
           .get_reponse_sheet()
           .read_one_response({
             index:
