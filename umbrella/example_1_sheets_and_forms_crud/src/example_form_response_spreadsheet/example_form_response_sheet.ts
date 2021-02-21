@@ -10,7 +10,6 @@ class ExampleFormResponseSheet extends ExampleFormResponseSpreadsheet {
     const { get_sheet } = this_class;
 
     this.sheet = get_sheet(spreadsheet);
-    this.spreadsheet = spreadsheet;
     this.start_column = "A";
     this.end_column = "F";
   }
