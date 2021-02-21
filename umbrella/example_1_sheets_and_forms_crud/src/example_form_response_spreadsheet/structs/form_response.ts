@@ -1,4 +1,4 @@
-class FormResponseObj {
+class FormResponse extends Object {
   index: number;
   timestamp: Date;
   email: string;
@@ -16,6 +16,7 @@ class FormResponseObj {
     given_number;
     favorite_food;
   }) {
+    super();
     const {
       index,
       timestamp,

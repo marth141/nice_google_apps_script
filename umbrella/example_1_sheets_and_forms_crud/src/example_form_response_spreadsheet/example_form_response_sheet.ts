@@ -19,7 +19,7 @@ class ExampleFormResponseSheet extends ExampleFormResponseSpreadsheet {
 
   // CRUD operations
 
-  create_response(new_response: FormResponseObj) {
+  create_response(new_response: FormResponse) {
     const this_class = this;
     const { sheet, start_column, end_column } = this_class;
 
@@ -64,7 +64,7 @@ class ExampleFormResponseSheet extends ExampleFormResponseSpreadsheet {
       .getValues()
       .map(([a, b, c, d, e, f], index) => {
         if (a instanceof Date) {
-          return new FormResponseObj({
+          return new FormResponse({
             index,
             timestamp: a,
             email: b,
@@ -75,7 +75,7 @@ class ExampleFormResponseSheet extends ExampleFormResponseSpreadsheet {
           });
         }
       })
-      .filter((response: FormResponseObj) => {
+      .filter((response: FormResponse) => {
         return response != undefined;
       });
   }
@@ -102,7 +102,7 @@ class ExampleFormResponseSheet extends ExampleFormResponseSpreadsheet {
 
     return this_class
       .read_all_responses()
-      .find((existing_response: FormResponseObj) => {
+      .find((existing_response: FormResponse) => {
         for (const property in existing_response) {
           if (
             existing_response[property] == index ||
@@ -119,7 +119,7 @@ class ExampleFormResponseSheet extends ExampleFormResponseSpreadsheet {
       });
   }
 
-  update_response(to_update: FormResponseObj) {
+  update_response(to_update: FormResponse) {
     const this_class = this;
     const { sheet, start_column, end_column } = this_class;
     const {
@@ -140,13 +140,13 @@ class ExampleFormResponseSheet extends ExampleFormResponseSpreadsheet {
     return to_update;
   }
 
-  delete_response(to_delete: FormResponseObj) {
+  delete_response(to_delete: FormResponse) {
     const this_class = this;
     const { sheet } = this_class;
 
     const existing_response = this_class
       .read_all_responses()
-      .find((existing_response: FormResponseObj) => {
+      .find((existing_response: FormResponse) => {
         return existing_response.email == to_delete.email;
       }, to_delete);
 

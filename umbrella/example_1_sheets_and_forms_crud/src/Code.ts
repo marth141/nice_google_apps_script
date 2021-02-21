@@ -6,7 +6,7 @@ function test() {
         return new ExampleFormResponseSpreadsheet()
           .get_reponse_sheet()
           .create_response(
-            new FormResponseObj({
+            new FormResponse({
               index: undefined,
               timestamp: new Date("2/20/2021 13:49:15"),
               email: `Script${new ExampleFormResponseSpreadsheet()
