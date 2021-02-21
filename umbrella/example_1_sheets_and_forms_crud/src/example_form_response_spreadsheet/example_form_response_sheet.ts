@@ -21,17 +21,6 @@ class ExampleFormResponseSheet extends ExampleFormResponseSpreadsheet {
 
   create_response(new_response: FormResponse) {
     const this_class = this;
-    const { sheet, start_column, end_column } = this_class;
-
-    const {
-      index,
-      timestamp,
-      email,
-      name,
-      favorite_day,
-      given_number,
-      favorite_food,
-    } = new_response;
 
     const existing_response = this_class
       .read_all_responses()
@@ -40,11 +29,7 @@ class ExampleFormResponseSheet extends ExampleFormResponseSpreadsheet {
       }, new_response);
 
     if (existing_response == undefined) {
-      sheet
-        .getRange(`${start_column}${index + 1}:${end_column}${index + 1}`)
-        .setValues([
-          [timestamp, email, name, favorite_day, given_number, favorite_food],
-        ]);
+      this_class.update_response(new_response);
       return new_response;
     } else {
       console.error(new Error("Record already exists"));
