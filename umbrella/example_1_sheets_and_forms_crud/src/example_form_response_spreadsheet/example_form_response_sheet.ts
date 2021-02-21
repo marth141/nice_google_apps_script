@@ -35,6 +35,7 @@ class ExampleFormResponseSheet extends ExampleFormResponseSpreadsheet {
       .find((existing_response) => {
         return existing_response.email == new_response.email;
       }, new_response);
+
     if (existing_response == undefined) {
       sheet
         .getRange(`A${sheet.getLastRow() + 1}:F${sheet.getLastRow() + 1}`)

@@ -3,7 +3,7 @@ function test() {
     label: "Test create new",
     result: (() => {
       try {
-        new ExampleFormResponseSpreadsheet()
+        return new ExampleFormResponseSpreadsheet()
           .get_reponse_sheet()
           .create_response(
             new FormResponseObj({
