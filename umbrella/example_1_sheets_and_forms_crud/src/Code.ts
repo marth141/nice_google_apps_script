@@ -10,7 +10,7 @@ function test() {
               index:
                 new ExampleFormResponseSpreadsheet()
                   .get_reponse_sheet()
-                  .sheet.getLastRow() - 1,
+                  .sheet.getLastRow(),
               timestamp: new Date("2/20/2021 13:49:15"),
               email: `Script${new ExampleFormResponseSpreadsheet()
                 .get_reponse_sheet()
