@@ -2,7 +2,7 @@ class ExampleFormResponseSpreadsheet {
   spreadsheet_id: string;
   spreadsheet: GoogleAppsScript.Spreadsheet.Spreadsheet;
 
-  constructor(spreadsheet_id = "1LS09YDGkLDIZCKofXYrhY72M2Y1HbJgE93q82XDHF-4") {
+  constructor(spreadsheet_id = SpreadsheetApp.getActive().getId()) {
     const this_class = this;
     const { get_spreadsheet } = this_class;
 
