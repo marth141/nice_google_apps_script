@@ -1,6 +1,8 @@
 class ExampleFormResponseSheet extends ExampleFormResponseSpreadsheet {
   sheet: GoogleAppsScript.Spreadsheet.Sheet;
   spreadsheet: GoogleAppsScript.Spreadsheet.Spreadsheet;
+  start_column: string;
+  end_column: string;
 
   constructor(spreadsheet: GoogleAppsScript.Spreadsheet.Spreadsheet) {
     super();
@@ -9,6 +11,8 @@ class ExampleFormResponseSheet extends ExampleFormResponseSpreadsheet {
 
     this.sheet = get_sheet(spreadsheet);
     this.spreadsheet = spreadsheet;
+    this.start_column = "A";
+    this.end_column = "F";
   }
 
   get_sheet(spreadsheet = this.spreadsheet) {
@@ -19,7 +23,7 @@ class ExampleFormResponseSheet extends ExampleFormResponseSpreadsheet {
 
   create_response(new_response: FormResponseObj) {
     const this_class = this;
-    const { sheet } = this_class;
+    const { sheet, start_column, end_column } = this_class;
 
     const {
       timestamp,
@@ -38,7 +42,11 @@ class ExampleFormResponseSheet extends ExampleFormResponseSpreadsheet {
 
     if (existing_response == undefined) {
       sheet
-        .getRange(`A${sheet.getLastRow() + 1}:F${sheet.getLastRow() + 1}`)
+        .getRange(
+          `${start_column}${sheet.getLastRow() + 1}:${end_column}${
+            sheet.getLastRow() + 1
+          }`
+        )
         .setValues([
           [timestamp, email, name, favorite_day, given_number, favorite_food],
         ]);
@@ -51,10 +59,10 @@ class ExampleFormResponseSheet extends ExampleFormResponseSpreadsheet {
 
   read_all_responses() {
     const this_class = this;
-    const { sheet } = this_class;
+    const { sheet, start_column, end_column } = this_class;
 
     return sheet
-      .getRange(`A1:F${sheet.getLastRow()}`)
+      .getRange(`${start_column}1:${end_column}${sheet.getLastRow()}`)
       .getValues()
       .map(([a, b, c, d, e, f], index) => {
         if (a instanceof Date) {
@@ -115,7 +123,7 @@ class ExampleFormResponseSheet extends ExampleFormResponseSpreadsheet {
 
   update_response(to_update: FormResponseObj) {
     const this_class = this;
-    const { sheet } = this_class;
+    const { sheet, start_column, end_column } = this_class;
     const {
       index,
       timestamp,
@@ -127,7 +135,7 @@ class ExampleFormResponseSheet extends ExampleFormResponseSpreadsheet {
     } = to_update;
 
     sheet
-      .getRange(`A${index + 1}:F${index + 1}`)
+      .getRange(`${start_column}${index + 1}:${end_column}${index + 1}`)
       .setValues([
         [timestamp, email, name, favorite_day, given_number, favorite_food],
       ]);
