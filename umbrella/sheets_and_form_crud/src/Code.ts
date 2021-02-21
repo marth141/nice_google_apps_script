@@ -7,10 +7,9 @@ function test() {
           .get_reponse_sheet()
           .create_response(
             new FormResponse({
-              index:
-                new ExampleFormResponseSpreadsheet()
-                  .get_reponse_sheet()
-                  .sheet.getLastRow(),
+              index: new ExampleFormResponseSpreadsheet()
+                .get_reponse_sheet()
+                .sheet.getLastRow(),
               timestamp: new Date("2/20/2021 13:49:15"),
               email: `Script${new ExampleFormResponseSpreadsheet()
                 .get_reponse_sheet()
@@ -64,18 +63,21 @@ function test() {
     label: "Test update record",
     result: (() => {
       try {
+        const existing_response = new ExampleFormResponseSpreadsheet()
+          .get_reponse_sheet()
+          .read_one_response({
+            index:
+              new ExampleFormResponseSpreadsheet()
+                .get_reponse_sheet()
+                .sheet.getLastRow() - 1,
+          });
+
+        existing_response.timestamp = new Date();
+        existing_response.favorite_food = "Chickie Tendies";
+
         return new ExampleFormResponseSpreadsheet()
           .get_reponse_sheet()
-          .update_response(
-            new ExampleFormResponseSpreadsheet()
-              .get_reponse_sheet()
-              .read_one_response({
-                index:
-                  new ExampleFormResponseSpreadsheet()
-                    .get_reponse_sheet()
-                    .sheet.getLastRow() - 1,
-              })
-          );
+          .update_response(existing_response);
       } catch (error) {
         console.error("Failed update record");
       }
