@@ -19,31 +19,33 @@ class ExampleFormResponseSheet extends ExampleFormResponseSpreadsheet {
 
   create_response(new_response: FormResponseObj) {
     const this_class = this;
-    const forEach_args = { new_response, this_class };
+    const { sheet } = this_class;
 
-    this_class.read_all_responses().find((existing_response) => {
-      const { new_response, this_class } = forEach_args;
-      const { sheet } = this_class;
-      const {
-        timestamp,
-        email,
-        favorite_day,
-        given_number,
-        favorite_food,
-      } = new_response;
+    const {
+      timestamp,
+      email,
+      name,
+      favorite_day,
+      given_number,
+      favorite_food,
+    } = new_response;
 
-      if (existing_response.email === new_response.email) {
-        console.error(new Error("Record already exists"));
-        return existing_response;
-      } else {
-        sheet
-          .getRange(`A${sheet.getLastRow() + 1}:F${sheet.getLastRow() + 1}`)
-          .setValues([
-            [timestamp, email, favorite_day, given_number, favorite_food],
-          ]);
-        return new_response;
-      }
-    }, forEach_args);
+    const existing_response = this_class
+      .read_all_responses()
+      .find((existing_response) => {
+        return existing_response.email == new_response.email;
+      }, new_response);
+    if (existing_response == undefined) {
+      sheet
+        .getRange(`A${sheet.getLastRow() + 1}:F${sheet.getLastRow() + 1}`)
+        .setValues([
+          [timestamp, email, name, favorite_day, given_number, favorite_food],
+        ]);
+      return new_response;
+    } else {
+      console.error(new Error("Record already exists"));
+      return existing_response;
+    }
   }
 
   read_all_responses() {
@@ -74,6 +76,7 @@ class ExampleFormResponseSheet extends ExampleFormResponseSpreadsheet {
   read_one_response(read_query: {
     index?;
     timestamp?;
+    email?;
     name?;
     favorite_day?;
     given_number?;
@@ -83,6 +86,7 @@ class ExampleFormResponseSheet extends ExampleFormResponseSpreadsheet {
     const {
       index,
       timestamp,
+      email,
       name,
       favorite_day,
       given_number,
@@ -96,6 +100,7 @@ class ExampleFormResponseSheet extends ExampleFormResponseSpreadsheet {
           if (
             existing_response[property] === index ||
             timestamp ||
+            email ||
             name ||
             favorite_day ||
             given_number ||
@@ -117,6 +122,7 @@ class ExampleFormResponseSheet extends ExampleFormResponseSpreadsheet {
       index,
       timestamp,
       email,
+      name,
       favorite_day,
       given_number,
       favorite_food,
@@ -125,7 +131,7 @@ class ExampleFormResponseSheet extends ExampleFormResponseSpreadsheet {
     sheet
       .getRange(`A${index + 1}:F${index + 1}`)
       .setValues([
-        [timestamp, email, favorite_day, given_number, favorite_food],
+        [timestamp, email, name, favorite_day, given_number, favorite_food],
       ]);
     return to_update;
   }
