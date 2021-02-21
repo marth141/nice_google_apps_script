@@ -13,7 +13,10 @@ class ExampleFormResponseSheet extends ExampleFormResponseSpreadsheet {
     this.end_column = "F";
   }
 
-  get_sheet(spreadsheet: GoogleAppsScript.Spreadsheet.Spreadsheet, name) {
+  get_sheet(
+    spreadsheet: GoogleAppsScript.Spreadsheet.Spreadsheet,
+    name: string
+  ) {
     return spreadsheet.getSheetByName(name);
   }
 
