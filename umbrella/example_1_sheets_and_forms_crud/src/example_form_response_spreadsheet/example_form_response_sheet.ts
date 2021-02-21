@@ -96,7 +96,7 @@ class ExampleFormResponseSheet extends ExampleFormResponseSpreadsheet {
 
     return this_class
       .read_all_responses()
-      .map((existing_response: FormResponseObj) => {
+      .find((existing_response: FormResponseObj) => {
         for (const property in existing_response) {
           if (
             existing_response[property] === index ||
@@ -110,10 +110,7 @@ class ExampleFormResponseSheet extends ExampleFormResponseSpreadsheet {
             return existing_response;
           }
         }
-      })
-      .filter((record: FormResponseObj) => {
-        return record != undefined;
-      })[0];
+      });
   }
 
   update_response(to_update: FormResponseObj) {
