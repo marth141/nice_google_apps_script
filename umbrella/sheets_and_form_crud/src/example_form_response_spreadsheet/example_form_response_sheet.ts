@@ -3,18 +3,18 @@ class ExampleFormResponseSheet extends ExampleFormResponseSpreadsheet {
   start_column: string;
   end_column: string;
 
-  constructor(spreadsheet: GoogleAppsScript.Spreadsheet.Spreadsheet) {
+  constructor() {
     super();
     const this_class = this;
-    const { get_sheet } = this_class;
+    const { get_sheet, spreadsheet } = this_class;
 
-    this.sheet = get_sheet(spreadsheet);
+    this.sheet = get_sheet(spreadsheet, "Form Responses 1");
     this.start_column = "A";
     this.end_column = "F";
   }
 
-  get_sheet(spreadsheet = this.spreadsheet) {
-    return spreadsheet.getSheetByName("Form Responses 1");
+  get_sheet(spreadsheet: GoogleAppsScript.Spreadsheet.Spreadsheet, name) {
+    return spreadsheet.getSheetByName(name);
   }
 
   // CRUD operations

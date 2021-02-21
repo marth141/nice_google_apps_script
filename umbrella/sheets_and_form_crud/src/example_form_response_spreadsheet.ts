@@ -14,7 +14,7 @@ class ExampleFormResponseSpreadsheet {
     return SpreadsheetApp.openById(spreadsheet_id);
   }
 
-  get_reponse_sheet(spreadsheet = this.spreadsheet) {
-    return new ExampleFormResponseSheet(spreadsheet);
+  get_reponse_sheet() {
+    return new ExampleFormResponseSheet();
   }
 }
