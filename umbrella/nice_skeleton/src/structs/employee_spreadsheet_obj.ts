@@ -7,6 +7,7 @@ class EmployeeSpreadsheetObj {
 
   // I like using this syntax for getting and setting the values for
   // a class that is being used like a struct.
+  // You'd want to capture all of the headers of your sheet's data like this.
   constructor(args: { name: any; link: any; index: any }) {
     const this_class = this;
     const { try_open_spreadsheet } = this_class;
