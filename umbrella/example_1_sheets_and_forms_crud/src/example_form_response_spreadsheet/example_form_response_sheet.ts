@@ -24,6 +24,7 @@ class ExampleFormResponseSheet extends ExampleFormResponseSpreadsheet {
     const { sheet, start_column, end_column } = this_class;
 
     const {
+      index,
       timestamp,
       email,
       name,
@@ -40,11 +41,7 @@ class ExampleFormResponseSheet extends ExampleFormResponseSpreadsheet {
 
     if (existing_response == undefined) {
       sheet
-        .getRange(
-          `${start_column}${sheet.getLastRow() + 1}:${end_column}${
-            sheet.getLastRow() + 1
-          }`
-        )
+        .getRange(`${start_column}${index + 1}:${end_column}${index + 1}`)
         .setValues([
           [timestamp, email, name, favorite_day, given_number, favorite_food],
         ]);
