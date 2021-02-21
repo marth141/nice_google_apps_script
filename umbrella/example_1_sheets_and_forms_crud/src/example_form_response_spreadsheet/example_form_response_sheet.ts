@@ -99,7 +99,7 @@ class ExampleFormResponseSheet extends ExampleFormResponseSpreadsheet {
       .find((existing_response: FormResponseObj) => {
         for (const property in existing_response) {
           if (
-            existing_response[property] === index ||
+            existing_response[property] == index ||
             timestamp ||
             email ||
             name ||
