@@ -88,11 +88,11 @@ function test() {
     label: "Test update records",
     result: (() => {
       try {
-        let existing_responses = new ExampleFormResponseSpreadsheet()
+        const existing_responses = new ExampleFormResponseSpreadsheet()
           .get_reponse_sheet()
           .read_all_responses();
 
-        let transformed_responses = existing_responses.map(
+        const transformed_responses = existing_responses.map(
           (response: FormResponse) => {
             response.timestamp = new Date();
             return response;
