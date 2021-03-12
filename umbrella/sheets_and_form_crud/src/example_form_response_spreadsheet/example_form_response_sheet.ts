@@ -125,6 +125,36 @@ class ExampleFormResponseSheet extends ExampleFormResponseSpreadsheet {
     return to_update;
   }
 
+  update_responses(list_to_update: FormResponse[]) {
+    const this_class = this;
+    const { sheet, start_column, end_column } = this_class;
+
+    const to_google_sheets = list_to_update.map((to_update: FormResponse) => {
+      const {
+        index,
+        timestamp,
+        email,
+        name,
+        favorite_day,
+        given_number,
+        favorite_food,
+      } = to_update;
+      return [
+        timestamp,
+        email,
+        name,
+        favorite_day,
+        given_number,
+        favorite_food,
+      ];
+    });
+
+    sheet
+      .getRange(`${start_column}2:${end_column}${sheet.getLastRow()}`)
+      .setValues(to_google_sheets);
+    return list_to_update;
+  }
+
   delete_response(to_delete: FormResponse) {
     const this_class = this;
     const { sheet } = this_class;
