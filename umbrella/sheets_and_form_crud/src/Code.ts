@@ -63,14 +63,16 @@ function test() {
     label: "Test update record",
     result: (() => {
       try {
+        const read_query = {
+          index:
+            new ExampleFormResponseSpreadsheet()
+              .get_reponse_sheet()
+              .sheet.getLastRow() - 1,
+        };
+
         let response_to_update = new ExampleFormResponseSpreadsheet()
           .get_reponse_sheet()
-          .read_one_response({
-            index:
-              new ExampleFormResponseSpreadsheet()
-                .get_reponse_sheet()
-                .sheet.getLastRow() - 1,
-          });
+          .read_one_response(read_query);
 
         response_to_update.timestamp = new Date();
         response_to_update.favorite_food = "Chickie Tendies";
