@@ -63,7 +63,7 @@ function test() {
     label: "Test update record",
     result: (() => {
       try {
-        let existing_response = new ExampleFormResponseSpreadsheet()
+        let response_to_update = new ExampleFormResponseSpreadsheet()
           .get_reponse_sheet()
           .read_one_response({
             index:
@@ -72,12 +72,12 @@ function test() {
                 .sheet.getLastRow() - 1,
           });
 
-        existing_response.timestamp = new Date();
-        existing_response.favorite_food = "Chickie Tendies";
+        response_to_update.timestamp = new Date();
+        response_to_update.favorite_food = "Chickie Tendies";
 
         return new ExampleFormResponseSpreadsheet()
           .get_reponse_sheet()
-          .update_response(existing_response);
+          .update_response(response_to_update);
       } catch (error) {
         console.error("Failed update record");
       }
@@ -92,7 +92,7 @@ function test() {
           .get_reponse_sheet()
           .read_all_responses();
 
-        const transformed_responses = existing_responses.map(
+        const updated_responses = existing_responses.map(
           (response: FormResponse) => {
             response.timestamp = new Date();
             return response;
@@ -101,7 +101,7 @@ function test() {
 
         return new ExampleFormResponseSpreadsheet()
           .get_reponse_sheet()
-          .update_responses(transformed_responses);
+          .update_responses(updated_responses);
       } catch (error) {
         console.error("Failed update records");
       }
