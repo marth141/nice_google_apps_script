@@ -112,14 +112,16 @@ function test() {
     label: "Test delete record",
     result: (() => {
       try {
+        const read_query = {
+          index:
+            new ExampleFormResponseSpreadsheet()
+              .get_reponse_sheet()
+              .sheet.getLastRow() - 1,
+        };
+
         const response_to_delete = new ExampleFormResponseSpreadsheet()
           .get_reponse_sheet()
-          .read_one_response({
-            index:
-              new ExampleFormResponseSpreadsheet()
-                .get_reponse_sheet()
-                .sheet.getLastRow() - 1,
-          });
+          .read_one_response(read_query);
 
         return new ExampleFormResponseSpreadsheet()
           .get_reponse_sheet()
