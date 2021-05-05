@@ -2,13 +2,13 @@
 
 So sharing this recipe for working with Spreadsheet Google Apps Script.
 
-Basically you'd want to abstract the top level "Spreadsheet" stuff into a class like in `umbrella/nice_skeleton/src/example_spreadsheet.ts`.
+Basically you'd want to abstract the top level "Spreadsheet" stuff into a class like in `umbrella/sheets_and_form_crud/src/example_form_response_spreadsheet.ts`.
 
-Then you'd want to abstract your sheets into classes like in `umbrella/nice_skeleton/src/example_spreadsheet/example_sheet.ts`.
+Then you'd want to abstract your sheets into classes like in `umbrella/sheets_and_form_crud/src/example_spreadsheet/example_form_response_sheet.ts`.
 
-You'd want to abstract your table data like in `umbrella/nice_skeleton/src/struct/employee_spreadsheet_obj.ts`.
+You'd want to abstract your table data like in `umbrella/sheets_and_form_crud/src/example_form_response_spreadsheet/structs/form_response.ts`.
 
-With these foundations, you can execute `myFunction()` in `umbrella/nice_skeleton/src/Code.ts`.
+With these foundations, you can execute `test()` in `umbrella/sheets_and_form_crud/src/Code.ts`.
 
 The end result of this is that it'll show a "how to read spreadsheet data & how to update spreadsheet data" method with a solid umbrella application foundation; with pretty full IDE support if you're using Visual Studio Code, clasp, and @types/google-apps-script.
 
