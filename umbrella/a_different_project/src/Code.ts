@@ -1,5 +1,5 @@
 function myFunction() {
-  // You can do so many things.
+  // You can do many things.
   // Umbrella structures are nice!
-  // Different libraries for different things.
+  // New code, new folder.
 }
